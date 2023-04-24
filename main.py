@@ -1,4 +1,18 @@
+from function_1 import update_measurement
+
 print ("Welcome to the Get Fit! app")
+
+measurements = "measurements.csv"
+
+try:
+    open_measurements = open(measurements, "r")
+    open_measurements.close()
+    print("Log loaded")
+except FileNotFoundError as e:
+    open_measurements = open(measurements, "w")
+    open_measurements.write("Measurements\n")
+    open_measurements.close()
+    print("Created new log")
 
 def create_menu():
     print("1. Enter 1 to update your measurements")
@@ -16,7 +30,7 @@ while user_choice != "6":
     user_choice = create_menu()
 
     if (user_choice == "1"):
-        print("Update measurements ")
+        update_measurement(measurements)
     elif (user_choice == "2"):
         print("View measurements")
     elif (user_choice == "3"):
