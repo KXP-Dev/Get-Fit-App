@@ -1,4 +1,5 @@
 from function_1 import update_measurement
+from function_2 import view_measurements
 
 print ("Welcome to the Get Fit! app")
 
@@ -19,7 +20,7 @@ def create_menu():
     print("2. Enter 2 to view your measurements")
     print("3. Enter 3 to calculate your BMI")
     print("4. Enter 4 to add an excersise")
-    print("5. Enter 5 to view previous excersises")
+    print("5. Enter 5 to view excersise history")
     print("6. Enter 6 to exit")
     choice = input("Enter your selection: ")
     return choice
@@ -32,7 +33,7 @@ while user_choice != "6":
     if (user_choice == "1"):
         update_measurement(measurements)
     elif (user_choice == "2"):
-        print("View measurements")
+        view_measurements(measurements)
     elif (user_choice == "3"):
         print("Calculate BMI")
     elif (user_choice == "4"):

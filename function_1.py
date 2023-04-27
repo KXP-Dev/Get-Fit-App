@@ -1,11 +1,12 @@
 import csv
+from utils import get_float_input, get_date_input
 
 def update_measurement(measurements):
     print("Update measurement")
-    weight = float(input("Enter your weight in kilograms: "))
-    height = float(input("Enter your height in cm: "))
-    date = input("Today's date: ")
-    with open(measurements, "a", newline='')as open_measurements:
+    weight = get_float_input("Enter your weight in kilograms: ")
+    height = get_float_input("Enter your height in cm: ")
+    date = get_date_input("Today's date (dd/mm/yyyy): ")
+    with open(measurements, "a", newline='') as open_measurements:
         writer = csv.writer(open_measurements)
         writer.writerow(["Date", " Height (cm)", " Weight (kg)"])
         writer.writerow([date, height, weight])
