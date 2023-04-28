@@ -1,4 +1,5 @@
 import csv
+from prettytable import PrettyTable
 
 def view_measurements(measurements):
     print("Viewing measurement history")

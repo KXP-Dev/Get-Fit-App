@@ -2,6 +2,7 @@ from function_1 import update_measurement
 from function_2 import view_measurements
 from function_3 import calculate_bmi
 from function_4 import add_exercise
+from function_5 import view_excersises
 
 
 print ("Welcome to the Get Fit! app")
@@ -53,7 +54,7 @@ while user_choice != "6":
     elif (user_choice == "4"):
         add_exercise(excersises)
     elif (user_choice == "5"):
-        print("View excersise history")
+        view_excersises(excersises)
     elif (user_choice == "6"):
         continue
     else:
