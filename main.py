@@ -1,10 +1,13 @@
 from function_1 import update_measurement
 from function_2 import view_measurements
 from function_3 import calculate_bmi
+from function_4 import add_exercise
+
 
 print ("Welcome to the Get Fit! app")
 
 measurements = "measurements.csv"
+excersises = "excersises.csv"
 
 try:
     open_measurements = open(measurements, "r")
@@ -15,6 +18,16 @@ except FileNotFoundError as e:
     open_measurements.write("Measurements\n")
     open_measurements.close()
     print("Created new log")
+    
+try:
+    open_excersises = open(excersises, "r")
+    open_excersises.close()
+    print("Excersises loaded")
+except FileNotFoundError as e:
+    open_excersises = open(excersises, "w")
+    open_excersises.write("Excersises\n")
+    open_excersises.close()
+    print("Created excersise log")
 
 def create_menu():
     print("1. Enter 1 to update your measurements")
@@ -38,7 +51,7 @@ while user_choice != "6":
     elif (user_choice == "3"):
         calculate_bmi()
     elif (user_choice == "4"):
-        print("Add excersise")
+        add_exercise(excersises)
     elif (user_choice == "5"):
         print("View excersise history")
     elif (user_choice == "6"):
