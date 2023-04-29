@@ -8,5 +8,4 @@ def update_measurement(measurements):
     date = get_date_input("Today's date (dd/mm/yyyy): ")
     with open(measurements, "a", newline='') as open_measurements:
         writer = csv.writer(open_measurements)
-        writer.writerow(["Date", " Height (cm)", " Weight (kg)"])
         writer.writerow([date, height, weight])
