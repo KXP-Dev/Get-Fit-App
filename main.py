@@ -3,6 +3,7 @@ from function_2 import view_measurements
 from function_3 import calculate_bmi
 from function_4 import add_exercise
 from function_5 import view_exercises
+from function_6 import search_exercises
 
 
 print ("Welcome to the Get Fit! app")
@@ -36,13 +37,14 @@ def create_menu():
     print("3. Enter 3 to calculate your BMI")
     print("4. Enter 4 to add an exercise")
     print("5. Enter 5 to view exercise history")
-    print("6. Enter 6 to exit")
+    print("6. Enter 6 to search exercises")
+    print("7. Enter 7 to exit")
     choice = input("Enter your selection: ")
     return choice
 
 user_choice = ""
 
-while user_choice != "6":
+while user_choice != "7":
     user_choice = create_menu()
 
     if (user_choice == "1"):
@@ -56,6 +58,8 @@ while user_choice != "6":
     elif (user_choice == "5"):
         view_exercises(exercises)
     elif (user_choice == "6"):
+        search_exercises(exercises)
+    elif (user_choice == "7"):
         continue
     else:
         print("Invalid Input")
