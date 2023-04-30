@@ -8,7 +8,7 @@ from function_5 import view_exercises
 print ("Welcome to the Get Fit! app")
 
 measurements = "measurements.csv"
-excersises = "excersises.csv"
+exercises = "exercises.csv"
 
 try:
     open_measurements = open(measurements, "r")
@@ -21,21 +21,21 @@ except FileNotFoundError as e:
     print("Created new log")
     
 try:
-    open_excersises = open(excersises, "r")
-    open_excersises.close()
+    open_exercises = open(exercises, "r")
+    open_exercises.close()
     print("Excersises loaded")
 except FileNotFoundError as e:
-    open_excersises = open(excersises, "w")
-    open_excersises.write("Excersises\n")
-    open_excersises.close()
-    print("Created excersise log")
+    open_exercises = open(exercises, "w")
+    open_exercises.write("Exercises\n")
+    open_exercises.close()
+    print("Created exercise log")
 
 def create_menu():
     print("1. Enter 1 to update your measurements")
     print("2. Enter 2 to view your measurements")
     print("3. Enter 3 to calculate your BMI")
-    print("4. Enter 4 to add an excersise")
-    print("5. Enter 5 to view excersise history")
+    print("4. Enter 4 to add an exercise")
+    print("5. Enter 5 to view exercise history")
     print("6. Enter 6 to exit")
     choice = input("Enter your selection: ")
     return choice
@@ -52,9 +52,9 @@ while user_choice != "6":
     elif (user_choice == "3"):
         calculate_bmi()
     elif (user_choice == "4"):
-        add_exercise(excersises)
+        add_exercise(exercises)
     elif (user_choice == "5"):
-        view_exercises(excersises)
+        view_exercises(exercises)
     elif (user_choice == "6"):
         continue
     else:
