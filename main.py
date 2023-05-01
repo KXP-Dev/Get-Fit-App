@@ -32,6 +32,7 @@ except FileNotFoundError as e:
     print("Created exercise log")
 
 def create_menu():
+    print("MENU")
     print("1. Enter 1 to update your measurements")
     print("2. Enter 2 to view your measurements")
     print("3. Enter 3 to calculate your BMI")

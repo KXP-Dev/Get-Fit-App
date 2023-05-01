@@ -9,3 +9,4 @@ def update_measurement(measurements):
     with open(measurements, "a", newline='') as open_measurements:
         writer = csv.writer(open_measurements)
         writer.writerow([date, height, weight])
+    input("Press Enter to go back to menu...")

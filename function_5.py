@@ -5,8 +5,8 @@ def view_exercises(exercises):
     print("Viewing exercise history")
     table = PrettyTable(["Date", "Exercise", "Sets", "Repetitions"])
     try:
-        with open(exercises, "r") as open_excersises:
-            reader = csv.reader(open_excersises)
+        with open(exercises, "r") as open_exercises:
+            reader = csv.reader(open_exercises)
             next(reader)
             for row in reader:
                 table.add_row(row)
