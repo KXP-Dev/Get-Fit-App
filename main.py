@@ -6,7 +6,6 @@ from function_5 import view_exercises
 from function_6 import search_exercises
 from function_7 import search_measurements
 
-
 print ("Welcome to the Get Fit! app")
 
 measurements = "measurements.csv"
@@ -32,41 +31,76 @@ except FileNotFoundError as e:
     open_exercises.close()
     print("Created exercise log")
 
-def create_menu():
-    print("MENU")
-    print("1. Enter 1 to update your measurements")
-    print("2. Enter 2 to view your measurements")
-    print("3. Enter 3 to calculate your BMI")
-    print("4. Enter 4 to add an exercise")
-    print("5. Enter 5 to view exercise history")
-    print("6. Enter 6 to search exercises")
-    print("7. Enter 7 to search measurements")
-    print("8. Enter 8 to exit")
+def main_menu():
+    print("Main Menu")
+    print("Enter 1 for measurements")
+    print("Enter 2 for exercises")
+    print("Enter 3 for BMI calculator ")
+    print("Enter 4 to exit Get Fit! app")
     choice = input("Enter your selection: ")
+    return choice
+
+def measurements_submenu():
+    print("Measurements Menu")
+    print("1. Enter 1 to add your measurements")
+    print("2. Enter 2 to view measurement history")
+    print("3. Enter 3 to search measurement history")
+    print("4. Enter 4 to return to main menu")
+    choice = input("Enter your selection: ")
+    return choice
+
+def exercise_submenu():
+    print("Exercise Menu")
+    print("1. Enter 1 to add an exercise")
+    print("2. Enter 2 to view exercise history")
+    print("3. Enter 3 to search exercise history")
+    print("4. Enter 4 to return to main menu")
+    choice = input ("Enter your selection: ")
     return choice
 
 user_choice = ""
 
-while user_choice != "8":
-    user_choice = create_menu()
-
-    if (user_choice == "1"):
-        update_measurement(measurements)
-    elif (user_choice == "2"):
-        view_measurements(measurements)
-    elif (user_choice == "3"):
+while user_choice != "4":
+    user_choice = main_menu()
+    
+    if user_choice == "1":
+        measurements_choice = ""
+        while measurements_choice != "4":
+            measurements_choice = measurements_submenu()
+            
+            if measurements_choice == "1":
+                update_measurement(measurements)
+            elif measurements_choice == "2":
+                view_measurements(measurements)
+            elif measurements_choice == "3":
+                search_measurements(measurements)
+            elif measurements_choice == "4":
+                continue
+            else:
+                print("Invalid input")
+                
+    elif user_choice == "2":
+        exercise_choice = ""
+        while exercise_choice != "4":
+            exercise_choice = exercise_submenu()
+            
+            if exercise_choice == "1":
+                add_exercise(exercises)
+            elif exercise_choice == "2":
+                view_exercises(exercises)
+            elif exercise_choice == "3":
+                search_exercises(exercises)
+            elif exercise_choice == "4":
+                continue
+            else:
+                print("Invalid input")
+                
+    elif user_choice == "3":
         calculate_bmi()
-    elif (user_choice == "4"):
-        add_exercise(exercises)
-    elif (user_choice == "5"):
-        view_exercises(exercises)
-    elif (user_choice == "6"):
-        search_exercises(exercises)
-    elif (user_choice == "7"):
-        search_measurements(measurements)
-    elif (user_choice == "8"):
+        
+    elif user_choice == "4":
         continue
     else:
-        print("Invalid Input")
-        
+        print("Invalid input")
+            
 print("Thank you for using the Get Fit! app")

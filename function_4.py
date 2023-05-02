@@ -1,6 +1,5 @@
 import csv
 from utils import get_date_input
-from prettytable import PrettyTable
 
 def add_exercise(exercises):
     print("Add Exercise")

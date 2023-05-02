@@ -3,7 +3,7 @@ from prettytable import PrettyTable
 
 def view_exercises(exercises):
     print("Viewing exercise history")
-    table = PrettyTable(["Date", "Exercise", "Sets", "Repetitions"])
+    table = PrettyTable(["Exercise", "Date", "Sets", "Repetitions"])
     try:
         with open(exercises, "r") as open_exercises:
             reader = csv.reader(open_exercises)
