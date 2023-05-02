@@ -1,4 +1,5 @@
 import csv
+from prettytable import PrettyTable
 
 def search_exercises(exercises):
     print("Search Exercises")
@@ -9,7 +10,9 @@ def search_exercises(exercises):
         if len(matching_rows) == 0:
             print("No exercises found with that name.")
         else:
-            print("Matching Exercises:")
+            table = PrettyTable()
+            table.field_names = ["Exercise Name", "Date", "Sets", "Repetitions"]
             for row in matching_rows:
-                print(", ".join(row))
+                table.add_row(row)
+            print(table)
     input("Press Enter to go back to menu...")
