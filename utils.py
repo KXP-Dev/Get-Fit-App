@@ -15,3 +15,11 @@ def get_date_input(prompt):
             return value
         except ValueError:
             print("Invalid input. Please enter a date in the format dd/mm/yyyy.")
+            
+def get_string_input(prompt):
+    while True:
+        string_text = input(prompt)
+        if not string_text:
+            print("Empty value. Please enter text")
+        else:
+            return string_text
