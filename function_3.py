@@ -1,4 +1,4 @@
-from utils import get_float_input
+from utils import get_float_input, get_date_input
 import csv
 
 def calculate_bmi():
@@ -16,6 +16,7 @@ def calculate_bmi():
                 print("Please enter a value between 2 and 650 kg. Fun fact, Jon Brower Minnoch was the world's heaviest man at 635 kg.")
             else:
                 break
+        date = get_date_input("Enter today's date (dd/mm/yyyy): ")
         bmi = round(weight / (height ** 2), 2)
         if bmi < 18.5:
             category = "underweight"
@@ -30,7 +31,7 @@ def calculate_bmi():
         
         with open("bmi.csv", "a", newline="") as open_bmi:
             writer = csv.writer(open_bmi)
-            writer.writerow((bmi, category))
+            writer.writerow([date, bmi, category])
             print("BMI saved")
             
     except Exception as e:
