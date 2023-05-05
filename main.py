@@ -10,7 +10,9 @@ print ("Welcome to the Get Fit! app")
 
 measurements = "measurements.csv"
 exercises = "exercises.csv"
+bmi = "bmi.csv"
 
+# This will try to open CSV files. If they exist it will close. If they don't exist they will be created.
 try:
     open_measurements = open(measurements, "r")
     open_measurements.close()
@@ -30,7 +32,18 @@ except FileNotFoundError as e:
     open_exercises.write("Exercises\n")
     open_exercises.close()
     print("Created exercise log")
+    
+try:
+    open_bmi = open(bmi, "r")
+    open_bmi.close()
+    print("BMI history loaded")
+except FileNotFoundError as e:
+    open_bmi = open(bmi, "w")
+    open_bmi.write("BMI\n")
+    open_bmi.close()
+    print("BMI log created")
 
+# This code shows what will visually appear in the terminal and will ask for user input choice and return the selection.
 def main_menu():
     print("Main Menu")
     print("Enter 1 for measurements")
@@ -60,6 +73,7 @@ def exercise_submenu():
 
 user_choice = ""
 
+#This code shows how the user will navigate the menus using conditionals.
 while user_choice != "4":
     user_choice = main_menu()
     
