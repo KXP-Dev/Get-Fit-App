@@ -1,3 +1,4 @@
+from utils import print_color
 from function_1 import update_measurement
 from function_2 import view_measurements
 from function_3 import calculate_bmi
@@ -7,7 +8,7 @@ from function_6 import search_exercises
 from function_7 import search_measurements
 from function_8 import view_bmi
 
-print ("Welcome to the Get Fit! app")
+print_color("Welcome to the Get Fit! app", "yellow_bold")
 
 measurements = "measurements.csv"
 exercises = "exercises.csv"
@@ -17,66 +18,66 @@ bmi = "bmi.csv"
 try:
     open_measurements = open(measurements, "r")
     open_measurements.close()
-    print("Log loaded")
+    print_color("Measurement CSV Loaded", "green")
 except FileNotFoundError as e:
     open_measurements = open(measurements, "w")
     open_measurements.write("Measurements\n")
     open_measurements.close()
-    print("Created new log")
+    print_color("Created Measurement CSV", "light_blue")
     
 try:
     open_exercises = open(exercises, "r")
     open_exercises.close()
-    print("Excersises loaded")
+    print_color("Exercise CSV Loaded", "green")
 except FileNotFoundError as e:
     open_exercises = open(exercises, "w")
     open_exercises.write("Exercises\n")
     open_exercises.close()
-    print("Created exercise log")
+    print_color("Created Exercise CSV", "light_blue")
     
 try:
     open_bmi = open(bmi, "r")
     open_bmi.close()
-    print("BMI history loaded")
+    print_color("BMI CSV Loaded", "green")
 except FileNotFoundError as e:
     open_bmi = open(bmi, "w")
     open_bmi.write("BMI\n")
     open_bmi.close()
-    print("BMI log created")
+    print_color("Created BMI CSV", "light_blue")
 
 # This code shows what will visually appear in the terminal and will ask for user input choice and return the selection.
 def main_menu():
-    print("Main Menu")
-    print("Enter 1 for measurements")
-    print("Enter 2 for exercises")
-    print("Enter 3 for BMI")
-    print("Enter 4 to exit Get Fit! app")
+    print_color("Main Menu", "white_bold")
+    print_color("Enter 1 for measurements", "cyan")
+    print_color("Enter 2 for exercises", "cyan")
+    print_color("Enter 3 for BMI", "cyan")
+    print_color("Enter 4 to exit Get Fit! app", "cyan")
     choice = input("Enter your selection: ")
     return choice
 
 def measurements_submenu():
-    print("Measurements Menu")
-    print("1. Enter 1 to add your measurements")
-    print("2. Enter 2 to view measurement history")
-    print("3. Enter 3 to search measurement history")
-    print("4. Enter 4 to return to main menu")
+    print_color("Measurements Menu", "white_bold")
+    print_color("1. Enter 1 to add your measurements", "cyan")
+    print_color("2. Enter 2 to view measurement history", "cyan")
+    print_color("3. Enter 3 to search measurement history", "cyan")
+    print_color("4. Enter 4 to return to main menu", "cyan")
     choice = input("Enter your selection: ")
     return choice
 
 def exercise_submenu():
-    print("Exercise Menu")
-    print("1. Enter 1 to add an exercise")
-    print("2. Enter 2 to view exercise history")
-    print("3. Enter 3 to search exercise history")
-    print("4. Enter 4 to return to main menu")
+    print_color("Exercise Menu", "white_bold")
+    print_color("1. Enter 1 to add an exercise", "cyan")
+    print_color("2. Enter 2 to view exercise history", "cyan")
+    print_color("3. Enter 3 to search exercise history", "cyan")
+    print_color("4. Enter 4 to return to main menu", "cyan")
     choice = input ("Enter your selection: ")
     return choice
 
 def bmi_submenu():
-    print("BMI Menu")
-    print("1. Enter 1 to calculate your BMI")
-    print("2. Enter 2 to view your BMI history")
-    print("3. Enter 3 to return to main menu")
+    print_color("BMI Menu", "white_bold")
+    print_color("1. Enter 1 to calculate your BMI", "cyan")
+    print_color("2. Enter 2 to view your BMI history", "cyan")
+    print_color("3. Enter 3 to return to main menu", "cyan")
     choice = input("Enter your selection: ")
     return choice
 
@@ -136,4 +137,4 @@ while user_choice != "4":
     else:
         print("Invalid input")
             
-print("Thank you for using the Get Fit! app")
+print_color("Thank you for using the Get Fit! app", "red_bold")

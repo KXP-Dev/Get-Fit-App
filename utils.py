@@ -1,4 +1,5 @@
 from datetime import datetime
+from colorama import init, Fore, Style
 
 def get_float_input(prompt):
     while True:
@@ -23,3 +24,18 @@ def get_string_input(prompt):
             print("Empty value. Please enter text")
         else:
             return string_text
+        
+def print_color(text, color):
+    init(autoreset=True)
+    if color == "yellow_bold":
+        print(Fore.YELLOW + Style.BRIGHT + text)
+    elif color == "green":
+        print(Fore.GREEN + text)
+    elif color == "light_blue":
+        print(Fore.LIGHTBLUE_EX + text)
+    elif color == "red_bold":
+        print(Fore.RED + Style.BRIGHT + text)
+    elif color == "cyan":
+        print(Fore.CYAN + text)
+    else:
+        print(text)
