@@ -87,30 +87,27 @@ while user_choice != "4":
     try:
         if user_choice not in ["1", "2", "3", "4"]:
             raise ValueError("Invalid Input. Enter a selection between 1 and 4")
-        
         if user_choice == "1":
             measurements_choice = ""
             while measurements_choice != "4":
-                measurements_choice = measurements_submenu()
-                
+                measurements_choice = measurements_submenu()  
+                 
                 try:
                     if measurements_choice not in ["1", "2", "3", "4"]:
-                        raise ValueError("Invalid Input. Enter a selection between 1 and 4")
-                        
+                        raise ValueError("Invalid Input. Enter a selection between 1 and 4") 
                     if measurements_choice == "1":
                         update_measurement(measurements)
                     elif measurements_choice == "2":
                         view_measurements(measurements)
                     elif measurements_choice == "3":
-                        search_measurements(measurements)
-                        
+                        search_measurements(measurements)     
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")
-                    
+                    input("Press Enter to confirm continue from error...")     
+                      
         elif user_choice == "2":
             exercise_choice = ""
             while exercise_choice != "4":
@@ -119,21 +116,19 @@ while user_choice != "4":
                 try:
                     if exercise_choice not in ["1", "2", "3", "4"]:
                         raise ValueError("Invalid Input. Enter a selection between 1 and 4")
-                        
                     if exercise_choice == "1":
                         add_exercise(exercises)
                     elif exercise_choice == "2":
                         view_exercises(exercises)
                     elif exercise_choice == "3":
-                        search_exercises(exercises)
-                        
+                        search_exercises(exercises)   
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")
-                    
+                    input("Press Enter to confirm continue from error...")   
+                     
         elif user_choice == "3":
             bmi_choice = ""
             while bmi_choice != "3":
@@ -142,19 +137,17 @@ while user_choice != "4":
                 try:
                     if bmi_choice not in ["1", "2", "3"]:
                         raise ValueError("Invalid Input. Enter a selection between 1 and 3")
-                        
                     if bmi_choice == "1":
                         calculate_bmi()
                     elif bmi_choice == "2":
-                        view_bmi(bmi)
-                        
+                        view_bmi(bmi)      
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")
-                    
+                    input("Press Enter to confirm continue from error...")    
+                             
     except ValueError as ve:
         print(ve)
         input("Press Enter to confirm continue from error...")
