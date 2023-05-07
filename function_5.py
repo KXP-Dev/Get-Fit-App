@@ -13,4 +13,5 @@ def view_exercises(exercises):
         print(table)
     except FileNotFoundError:
         print(f"{exercises} file not found.")
+        input("Press Enter to confirm continue from error...")
     input("Press Enter to go back to menu...")

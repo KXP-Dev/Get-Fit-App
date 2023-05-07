@@ -14,4 +14,5 @@ def add_exercise(exercises):
         print("Exercise added successfully")
     except Exception as e:
         print(f"Something went wrong: {e}")
+        input("Press Enter to confirm continue from error...")
     input("Press Enter to go back to menu...")

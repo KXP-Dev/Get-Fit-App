@@ -2,5 +2,6 @@ venvfit
 app_assignment.code-workspace
 measurements.csv
 excersises.csv
-modules.txt
 bmi.csv
+test_bmi.py
+test_function.py

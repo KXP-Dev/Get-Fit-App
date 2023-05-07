@@ -14,7 +14,6 @@ measurements = "measurements.csv"
 exercises = "exercises.csv"
 bmi = "bmi.csv"
 
-# This will try to open CSV files. If they exist it will close. If they don't exist they will be created.
 try:
     open_measurements = open(measurements, "r")
     open_measurements.close()
@@ -45,7 +44,6 @@ except FileNotFoundError as e:
     open_bmi.close()
     print_color("Created BMI CSV", "light_blue")
 
-# This code shows what will visually appear in the terminal and will ask for user input choice and return the selection.
 def main_menu():
     print_color("Main Menu", "white_bold")
     print_color("Enter 1 for measurements", "cyan")
@@ -83,58 +81,85 @@ def bmi_submenu():
 
 user_choice = ""
 
-#This code shows how the user will navigate the menus using conditionals.
 while user_choice != "4":
     user_choice = main_menu()
     
-    if user_choice == "1":
-        measurements_choice = ""
-        while measurements_choice != "4":
-            measurements_choice = measurements_submenu()
-            
-            if measurements_choice == "1":
-                update_measurement(measurements)
-            elif measurements_choice == "2":
-                view_measurements(measurements)
-            elif measurements_choice == "3":
-                search_measurements(measurements)
-            elif measurements_choice == "4":
-                continue
-            else:
-                print("Invalid input")
-                
-    elif user_choice == "2":
-        exercise_choice = ""
-        while exercise_choice != "4":
-            exercise_choice = exercise_submenu()
-            
-            if exercise_choice == "1":
-                add_exercise(exercises)
-            elif exercise_choice == "2":
-                view_exercises(exercises)
-            elif exercise_choice == "3":
-                search_exercises(exercises)
-            elif exercise_choice == "4":
-                continue
-            else:
-                print("Invalid input")
-                
-    elif user_choice == "3":
-        bmi_choice = ""
-        while bmi_choice != "3":
-            bmi_choice = bmi_submenu()
-            if bmi_choice == "1":
-                calculate_bmi()
-            elif bmi_choice == "2":
-                view_bmi(bmi)
-            elif bmi_choice == "3":
-                continue
-            else:
-                print("Invalid Input")
+    try:
+        if user_choice not in ["1", "2", "3", "4"]:
+            raise ValueError("Invalid Input. Enter a selection between 1 and 4")
         
-    elif user_choice == "4":
-        continue
-    else:
-        print("Invalid input")
+        if user_choice == "1":
+            measurements_choice = ""
+            while measurements_choice != "4":
+                measurements_choice = measurements_submenu()
+                
+                try:
+                    if measurements_choice not in ["1", "2", "3", "4"]:
+                        raise ValueError("Invalid Input. Enter a selection between 1 and 4")
+                        
+                    if measurements_choice == "1":
+                        update_measurement(measurements)
+                    elif measurements_choice == "2":
+                        view_measurements(measurements)
+                    elif measurements_choice == "3":
+                        search_measurements(measurements)
+                        
+                except ValueError as ve:
+                    print(ve)
+                    input("Press Enter to confirm continue from error...")
+                except Exception as e:
+                    print(f"Something went wrong: {e}")
+                    input("Press Enter to confirm continue from error...")
+                    
+        elif user_choice == "2":
+            exercise_choice = ""
+            while exercise_choice != "4":
+                exercise_choice = exercise_submenu()
+                
+                try:
+                    if exercise_choice not in ["1", "2", "3", "4"]:
+                        raise ValueError("Invalid Input. Enter a selection between 1 and 4")
+                        
+                    if exercise_choice == "1":
+                        add_exercise(exercises)
+                    elif exercise_choice == "2":
+                        view_exercises(exercises)
+                    elif exercise_choice == "3":
+                        search_exercises(exercises)
+                        
+                except ValueError as ve:
+                    print(ve)
+                    input("Press Enter to confirm continue from error...")
+                except Exception as e:
+                    print(f"Something went wrong: {e}")
+                    input("Press Enter to confirm continue from error...")
+                    
+        elif user_choice == "3":
+            bmi_choice = ""
+            while bmi_choice != "3":
+                bmi_choice = bmi_submenu()
+                
+                try:
+                    if bmi_choice not in ["1", "2", "3"]:
+                        raise ValueError("Invalid Input. Enter a selection between 1 and 3")
+                        
+                    if bmi_choice == "1":
+                        calculate_bmi()
+                    elif bmi_choice == "2":
+                        view_bmi(bmi)
+                        
+                except ValueError as ve:
+                    print(ve)
+                    input("Press Enter to confirm continue from error...")
+                except Exception as e:
+                    print(f"Something went wrong: {e}")
+                    input("Press Enter to confirm continue from error...")
+                    
+    except ValueError as ve:
+        print(ve)
+        input("Press Enter to confirm continue from error...")
+    except Exception as e:
+        print(f"Something went wrong: {e}")
+        input("Press Enter to confirm continue from error...")
             
 print_color("Thank you for using the Get Fit! app", "red_bold")
