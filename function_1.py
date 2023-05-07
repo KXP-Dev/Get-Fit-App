@@ -1,6 +1,7 @@
 import csv
 from utils import get_float_input, get_date_input
 
+
 def update_measurement(measurements):
     print("Update measurement")
     try:

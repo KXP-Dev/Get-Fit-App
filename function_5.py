@@ -1,6 +1,7 @@
 import csv
 from prettytable import PrettyTable
 
+
 def view_exercises(exercises):
     print("Viewing exercise history")
     table = PrettyTable(["Exercise", "Date", "Sets", "Repetitions"])

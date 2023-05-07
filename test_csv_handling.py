@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 
 # This test checks if my csv handling is working as expected when creating a csv if it doesn't exist yet.
+
+
 def test_create_csv():
     os.remove("measurements.csv")
     assert Path("measurements.csv").is_file() == False
@@ -15,6 +17,8 @@ def test_create_csv():
     assert Path("measurements.csv").is_file() == True
 
 # This test checks the csv handling of my terminal app by making sure if an existing csv file exists it will load it.
+
+
 def test_load_csv():
     with open("measurements.csv", "w") as f:
         f.write("Measurements\n")

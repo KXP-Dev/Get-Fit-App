@@ -23,7 +23,7 @@ except FileNotFoundError as e:
     open_measurements.write("Measurements\n")
     open_measurements.close()
     print_color("Created Measurement CSV", "light_blue")
-    
+
 try:
     open_exercises = open(exercises, "r")
     open_exercises.close()
@@ -33,7 +33,7 @@ except FileNotFoundError as e:
     open_exercises.write("Exercises\n")
     open_exercises.close()
     print_color("Created Exercise CSV", "light_blue")
-    
+
 try:
     open_bmi = open(bmi, "r")
     open_bmi.close()
@@ -44,6 +44,7 @@ except FileNotFoundError as e:
     open_bmi.close()
     print_color("Created BMI CSV", "light_blue")
 
+
 def main_menu():
     print_color("Main Menu", "white_bold")
     print_color("Enter 1 for measurements", "cyan")
@@ -52,6 +53,7 @@ def main_menu():
     print_color("Enter 4 to exit Get Fit! app", "cyan")
     choice = input("Enter your selection: ")
     return choice
+
 
 def measurements_submenu():
     print_color("Measurements Menu", "white_bold")
@@ -62,14 +64,16 @@ def measurements_submenu():
     choice = input("Enter your selection: ")
     return choice
 
+
 def exercise_submenu():
     print_color("Exercise Menu", "white_bold")
     print_color("1. Enter 1 to add an exercise", "cyan")
     print_color("2. Enter 2 to view exercise history", "cyan")
     print_color("3. Enter 3 to search exercise history", "cyan")
     print_color("4. Enter 4 to return to main menu", "cyan")
-    choice = input ("Enter your selection: ")
+    choice = input("Enter your selection: ")
     return choice
+
 
 def bmi_submenu():
     print_color("BMI Menu", "white_bold")
@@ -79,80 +83,85 @@ def bmi_submenu():
     choice = input("Enter your selection: ")
     return choice
 
+
 user_choice = ""
 
 while user_choice != "4":
     user_choice = main_menu()
-    
+
     try:
         if user_choice not in ["1", "2", "3", "4"]:
-            raise ValueError("Invalid Input. Enter a selection between 1 and 4")
+            raise ValueError(
+                "Invalid Input. Enter a selection between 1 and 4")
         if user_choice == "1":
             measurements_choice = ""
             while measurements_choice != "4":
-                measurements_choice = measurements_submenu()  
-                 
+                measurements_choice = measurements_submenu()
+
                 try:
                     if measurements_choice not in ["1", "2", "3", "4"]:
-                        raise ValueError("Invalid Input. Enter a selection between 1 and 4") 
+                        raise ValueError(
+                            "Invalid Input. Enter a selection between 1 and 4")
                     if measurements_choice == "1":
                         update_measurement(measurements)
                     elif measurements_choice == "2":
                         view_measurements(measurements)
                     elif measurements_choice == "3":
-                        search_measurements(measurements)     
+                        search_measurements(measurements)
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")     
-                      
+                    input("Press Enter to confirm continue from error...")
+
         elif user_choice == "2":
             exercise_choice = ""
             while exercise_choice != "4":
                 exercise_choice = exercise_submenu()
-                
+
                 try:
                     if exercise_choice not in ["1", "2", "3", "4"]:
-                        raise ValueError("Invalid Input. Enter a selection between 1 and 4")
+                        raise ValueError(
+                            "Invalid Input. Enter a selection between 1 and 4")
                     if exercise_choice == "1":
                         add_exercise(exercises)
                     elif exercise_choice == "2":
                         view_exercises(exercises)
                     elif exercise_choice == "3":
-                        search_exercises(exercises)   
+                        search_exercises(exercises)
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")   
-                     
+                    input("Press Enter to confirm continue from error...")
+
         elif user_choice == "3":
             bmi_choice = ""
             while bmi_choice != "3":
                 bmi_choice = bmi_submenu()
-                
+
                 try:
                     if bmi_choice not in ["1", "2", "3"]:
-                        raise ValueError("Invalid Input. Enter a selection between 1 and 3")
+                        raise ValueError(
+                            "Invalid Input. Enter a selection between 1 and 3")
                     if bmi_choice == "1":
                         calculate_bmi()
                     elif bmi_choice == "2":
-                        view_bmi(bmi)      
+                        view_bmi(bmi)
                 except ValueError as ve:
                     print(ve)
                     input("Press Enter to confirm continue from error...")
                 except Exception as e:
                     print(f"Something went wrong: {e}")
-                    input("Press Enter to confirm continue from error...")    
-                             
+                    input("Press Enter to confirm continue from error...")
+
     except ValueError as ve:
         print(ve)
         input("Press Enter to confirm continue from error...")
     except Exception as e:
         print(f"Something went wrong: {e}")
         input("Press Enter to confirm continue from error...")
-            
+
 print_color("Thank you for using the Get Fit! app", "red_bold")

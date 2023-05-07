@@ -1,12 +1,14 @@
 from utils import get_float_input, get_date_input
 import csv
 
+
 def calculate_bmi():
     try:
         while True:
             height = get_float_input("Enter your height in cm: ")
             if height <= 50 or height > 300:
-                print("Please enter a value between 50 and 300 cm. Fun fact, Robert Wadlow was the world's tallest man at 272 cm.")
+                print(
+                    "Please enter a value between 50 and 300 cm. Fun fact, Robert Wadlow was the world's tallest man at 272 cm.")
             else:
                 break
         height = height / 100
@@ -28,12 +30,12 @@ def calculate_bmi():
             category = "obese"
         print("Your BMI is:", bmi)
         print("You are in the", category, "category.")
-        
+
         with open("bmi.csv", "a", newline="") as open_bmi:
             writer = csv.writer(open_bmi)
             writer.writerow([date, bmi, category])
             print("BMI saved")
-            
+
     except Exception as e:
         print(f"Something went wrong: {e}")
         input("Press Enter to confirm continue from error...")

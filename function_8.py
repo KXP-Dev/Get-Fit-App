@@ -1,6 +1,7 @@
 import csv
 from prettytable import PrettyTable
 
+
 def view_bmi(bmi):
     print("Viewing BMI history")
     table = PrettyTable(["Date", "BMI", "Category"])

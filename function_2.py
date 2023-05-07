@@ -1,6 +1,7 @@
 import csv
 from prettytable import PrettyTable
 
+
 def view_measurements(measurements):
     print("Viewing measurement history")
     table = PrettyTable(["Date", "Height (cm)", "Weight (kg)"])
@@ -17,4 +18,3 @@ def view_measurements(measurements):
         print(f"Something went wrong: {e}")
         input("Press Enter to confirm continue from error...")
     input("Press Enter to go back to menu...")
-    

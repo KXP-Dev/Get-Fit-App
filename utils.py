@@ -1,6 +1,7 @@
 from datetime import datetime
 from colorama import Fore, Style
 
+
 def get_float_input(prompt):
     while True:
         try:
@@ -14,6 +15,7 @@ def get_float_input(prompt):
         except Exception as e:
             print(f"Something went wrong: {e}")
 
+
 def get_date_input(prompt):
     while True:
         try:
@@ -23,7 +25,8 @@ def get_date_input(prompt):
             print("Invalid input. Please enter a date in the format dd/mm/yyyy.")
         except Exception as e:
             print(f"Something went wrong: {e}")
-            
+
+
 def get_string_input(prompt):
     while True:
         try:
@@ -36,7 +39,8 @@ def get_string_input(prompt):
             print(ve)
         except Exception as e:
             print(f"Something went wrong: {e}")
-        
+
+
 def print_color(text, color):
     if color == "yellow_bold":
         print(Fore.YELLOW + Style.BRIGHT + text)
