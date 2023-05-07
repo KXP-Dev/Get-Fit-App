@@ -16,6 +16,9 @@ GeeksforGeeks. (2020). Creating Tables with PrettyTable Library - Python. [onlin
 ## GitHub Repository
 [GitHub Repository](https://github.com/The-Programming-Mango/Fitness-App-T1A3)
 
+## Slide Deck Video
+[Youtube Slide Deck](https://youtu.be/lPIxebky9vQ)
+
 ## Code Style Guide
 [PEP8 Style Guide](https://peps.python.org/pep-0008/)
 
